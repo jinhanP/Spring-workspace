@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+
+	<insert id="insertBoard" parameterType="com.mire.biz.board.BoardVO">
+	<!-- 비교 문자 있을때는 오류가 나올 수 있으니 <![CDATA[ 을 사용한다. -->
+	<![CDATA[
+		insert into myboard(seq, title, writer, content)
+		values ((select nvl(max(seq), 0)+1 from myboard), #{title}, #{writer},
+		#{content})
+		]]>
+	</insert>
+	
+	
+	<update id="updateBoard" 	parameterType="board">
+	
+		update myboard set title=#{title}, content=#{content} where seq=#{seq}
+	</update>
+	
+	
+	<delete id="deleteBoard" 	parameterType="board">
+	
+		delete myboard where seq=#{seq}
+	</delete>
+
+	
+		<!--parameterType 은 생략 가능하다 resultType 은 생략하면 안된다.  -->
+	
+	<select id="getBoard" parameterType="board" resultType="board">
+		select * from myboard where seq=#{seq}
+	</select>
+	
+	
+	<select id="getBoardList" parameterType="board" resultType="board">
+    <![CDATA[
+        select * from myboard    order by seq desc
+        ]]>
+    </select>
+	
+	
+	<select id="getBoardList_t" parameterType="board"  resultType="board">
+	<![CDATA[
+		select * from myboard
+		where title like '%'||#{searchKeyword}||'%'
+		order by seq desc
+			]]>
+	</select>
+	
+	
+	<select id="getBoardList_c" parameterType="board"  resultType="board">
+	<![CDATA[
+		select * from myboard
+		where content like '%'||#{searchKeyword}||'%'
+		order by seq desc
+			]]>
+	</select>
+</mapper>
