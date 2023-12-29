@@ -11,6 +11,10 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <style>
+.container{
+border: 1px solid black;
+}
+
 header {
 	border: 1px solid black;
 	height: 50px
@@ -31,12 +35,18 @@ header {
 nav {
 	border: 1px solid black;
 	margin-top: 5px;
+	margin-bottom: 20px;
 }
 
+.nav-item {
+  margin-right: 110px; /* 원하는 간격 값으로 조절하세요 */
+ }
+
 .image-box {
-	width: 380px;
+	width: 280px;
 	height: 220px;
 	overflow: hidden;
+	margin-top: 20px;
 }
 
 .image-thumbnail {
@@ -46,7 +56,11 @@ nav {
 }
 
 main {
-	border: 1px solid black;
+border: 1px solid black;
+margin: 5px;
+}
+.menu{
+border: 1px solid black;
 }
 </style>
 </head>
@@ -62,26 +76,30 @@ main {
 				<button>
 					<a href="join.jsp" style="text-decoration-line: none;">회원가입</a>
 				</button>
+				&nbsp;
+				<button>
+					<a href="#" style="text-decoration-line: none;">장바구니</a>
+				</button>
 			</div>
 		</header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">메뉴</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+				
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#" onclick="showFriedMenu()" >인기메뉴</a></li>
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#" onclick="showFriedMenu()">후라이드</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#" onclick="showFriedMenu()">양념</a></li>
+							<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#" onclick="showFriedMenu()">사이드</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Dropdown </a>
+								이벤트 </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
@@ -89,8 +107,6 @@ main {
 								<li><a class="dropdown-item" href="#">Something else
 										here</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link disabled" href="#"
-							tabindex="-1" aria-disabled="true">Disabled</a></li>
 					</ul>
 					<form class="d-flex">
 						<input class="form-control me-2" type="search"
@@ -100,10 +116,14 @@ main {
 				</div>
 			</div>
 		</nav>
+		
+		<div class="menu">
+			<h4>후라이드</h4>
 		<main class="image-box">
 			<a href="#"><input type="image" class="image-thumbnail"
-				src="hulaideu.jpg"></a>
-		</main>
+				src="https://i.namu.wiki/i/rXO933-mnm4JkY_N7EX5ZbNr4w5YTVrRBK1Vgi2kbnF3Dpm8PrXzqPcWkCFhdjXlfbeeqKPfkDsqyrxnk_KRUnW6PX8osAry6h26FpUNatnIGPG-weYeToxdE1gTM6YjfEwozwkSbhFLx1wdDk4AFQ.webp"></a>
+		</div>
+	</menu>
 	</div>
 	<script>
 	 function showFriedMenu() {

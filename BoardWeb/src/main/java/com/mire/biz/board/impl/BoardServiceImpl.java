@@ -12,7 +12,7 @@ import com.mire.biz.board.BoardVO;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired // 의존성 주입
-	private BoardDAOMybaties boardDAO;
+	private BoardDAOJPA boardDAO;
 
 	@Override
 	public void insertBoard(BoardVO vo) {

@@ -1,6 +1,5 @@
 package com.mire.biz.board;
 
-
 import java.util.List;
 
 public interface BoardService {
