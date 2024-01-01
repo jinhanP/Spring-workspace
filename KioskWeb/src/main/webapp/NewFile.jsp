@@ -11,8 +11,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <style>
-.container{
-border: 1px solid black;
+.container {
+	border: 1px solid black;
 }
 
 header {
@@ -39,28 +39,27 @@ nav {
 }
 
 .nav-item {
-  margin-right: 110px; /* 원하는 간격 값으로 조절하세요 */
- }
-
-.image-box {
-	width: 280px;
-	height: 220px;
-	overflow: hidden;
-	margin-top: 20px;
+	margin-right: 75px; /* 원하는 간격 값으로 조절하세요 */
 }
 
-.image-thumbnail {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+
+img {
+	width: 255px;
 }
+
+.image-container{
+	display: flex;
+	justify-content: space-around;
+}
+	
 
 main {
-border: 1px solid black;
-margin: 5px;
+	border: 1px solid black;
+	margin: 5px;
 }
-.menu{
-border: 1px solid black;
+
+.menu {
+	border: 1px solid black;
 }
 </style>
 </head>
@@ -74,27 +73,25 @@ border: 1px solid black;
 				</button>
 				&nbsp;
 				<button>
-					<a href="join.jsp" style="text-decoration-line: none;">회원가입</a>
-				</button>
-				&nbsp;
-				<button>
-					<a href="#" style="text-decoration-line: none;">장바구니</a>
+					<a href="CartList.jsp" id="cart"
+						style="text-decoration-line: none;">장바구니</a>
 				</button>
 			</div>
+
 		</header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">메뉴</a>
-				
+
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#" onclick="showFriedMenu()" >인기메뉴</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#" onclick="showFriedMenu()">인기메뉴</a></li>
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#" onclick="showFriedMenu()">후라이드</a></li>
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#" onclick="showFriedMenu()">양념</a></li>
-							<li class="nav-item"><a class="nav-link active"
+						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#" onclick="showFriedMenu()">사이드</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -115,31 +112,71 @@ border: 1px solid black;
 					</form>
 				</div>
 			</div>
-		</nav>
+		</nav> 
+
+		  <div class="menu">
+			<h4>후라이드</h4> 
+		 <table border="1" cellpadding="0" cellspacing="0" width="700">
+			<tr>
+				<th width="100">번호</th>
+				<th width="200">이름</th>
+				<th width="150">상품</th>
+				<th width="150">가격</th>
+			</tr>
+
+			<c:forEach items="${CartList}" var="cart">
+				<tr>
+					<td>${cart.seq}</td>
+					<td>${cart.name}</td>
+					<td>${cart.title}</td>
+					<td>${cart.price}</td>
+				</tr>
+			</c:forEach>
+		</table>
+				<input type="submit" value="장바구니 담기">
+		</div> 
 		
-		<div class="menu">
-			<h4>후라이드</h4>
-		<main class="image-box">
-			<a href="#"><input type="image" class="image-thumbnail"
-				src="https://i.namu.wiki/i/rXO933-mnm4JkY_N7EX5ZbNr4w5YTVrRBK1Vgi2kbnF3Dpm8PrXzqPcWkCFhdjXlfbeeqKPfkDsqyrxnk_KRUnW6PX8osAry6h26FpUNatnIGPG-weYeToxdE1gTM6YjfEwozwkSbhFLx1wdDk4AFQ.webp"></a>
-		</div>
-	</menu>
 	</div>
-	<script>
-	 function showFriedMenu() {
-		    // 'fried-menu'라는 ID를 가진 요소를 찾아 스타일을 변경하여 보이도록 함
-		    var friedMenu = document.getElementById('fried-menu');
-		    friedMenu.style.display = 'block';
-		    
-		    // 기존에 보이던 다른 메뉴들은 숨김 처리
-		    // 이 부분은 실제 프로젝트에 따라 동작을 변경할 수 있습니다.
-		    var otherMenus = document.querySelectorAll('.menu');
-		    otherMenus.forEach(function(menu) {
-		      if (menu !== friedMenu) {
-		        menu.style.display = 'none';
-		      }
-		    });
-		  }
-	</script>
+</body>
+<script>
+	function showFriedMenu() {
+		// 'fried-menu'라는 ID를 가진 요소를 찾아 스타일을 변경하여 보이도록 함
+		var friedMenu = document.getElementById('fried-menu');
+		friedMenu.style.display = 'block';
+
+		// 기존에 보이던 다른 메뉴들은 숨김 처리
+		// 이 부분은 실제 프로젝트에 따라 동작을 변경할 수 있습니다.
+		var otherMenus = document.querySelectorAll('.menu');
+		otherMenus.forEach(function(menu) {
+			if (menu !== friedMenu) {
+				menu.style.display = 'none';
+			}
+		});
+	}
+
+	// JavaScript로 구현된 함수
+	function addToCart() {
+	
+		// 선택된 이미지를 찾기 위해 모든 체크박스를 가져옴
+		var checkboxes = document.getElementsByName('selectedImages');
+
+		// 선택된 이미지들을 담기 위한 배열
+		var selectedImages = [];
+
+		// 각 체크박스를 확인하고 선택된 이미지를 배열에 추가
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i].checked) {
+				selectedImages.push(checkboxes[i].value);
+			}
+		}
+
+		// 선택된 이미지에 대한 처리 (여기에서는 간단한 알림창)
+		if (selectedImages.length > 0) {
+			alert('선택된 이미지가 장바구니에 추가되었습니다:\n' + selectedImages.join(', '));
+		} else {
+			alert('이미지를 선택해주세요.');
+		}
+	}
+</script>
 </body>
 </html>

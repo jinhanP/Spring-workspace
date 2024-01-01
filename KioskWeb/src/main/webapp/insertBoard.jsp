@@ -51,6 +51,10 @@
 .flip:hover .card {
 	transform: rotateY(180deg);
 }
+form{
+ border: 1px solid black;
+ width: 400px;
+}
 </style>
 </head>
 <body>
@@ -79,6 +83,7 @@
 				<ul>
 					내용
 					<td align="left"><textarea name="content" rows="10" cols="40"></textarea></td>
+					<br>
 					<input type="submit" value="새글 등록">
 			</div>
 	</div>
