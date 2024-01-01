@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,25 +116,30 @@ main {
 		</nav> 
 
 		  <div class="menu">
+		  <form action=""></form>
 			<h4>후라이드</h4> 
 		 <table border="1" cellpadding="0" cellspacing="0" width="700">
 			<tr>
-				<th width="100">번호</th>
-				<th width="200">이름</th>
-				<th width="150">상품</th>
+				<th width="150">메뉴</th>
+			</tr>
+			<tr>
 				<th width="150">가격</th>
 			</tr>
-
-			<c:forEach items="${CartList}" var="cart">
+			
+			<tr>
+				<th width="150">${cart.title}</th>
+			</tr>
+			<tr>
+				<th width="150">${cart.price}</th>
+			</tr>
+			<c:forEach items="${cartList}" var="cart">
 				<tr>
-					<td>${cart.seq}</td>
-					<td>${cart.name}</td>
 					<td>${cart.title}</td>
 					<td>${cart.price}</td>
 				</tr>
 			</c:forEach>
 		</table>
-				<input type="submit" value="장바구니 담기">
+				<br><input type="submit" value="장바구니 담기">
 		</div> 
 		
 	</div>

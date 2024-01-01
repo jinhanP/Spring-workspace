@@ -12,14 +12,12 @@
 	<h1>장바구니</h1>
 	<table border="1" cellpadding="0" cellspacing="0" width="700">
 		<tr>
-		<td width="100">회사명</td>
 		<td width="100">메뉴</td>
 		<td width="100">가격</td>
 		</tr>
 		<c:forEach items="${CartList}" var="cart">
 				<tr>
-					<td>${cart.name}</td>
-					<td align="left"><a href="getCart.do?seq=${cart.seq}">${cart.title}</a></td>
+					<td>${cart.title}</td>
 					<td>${cart.price}</td>
 				</tr>
 			</c:forEach>

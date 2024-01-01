@@ -19,14 +19,9 @@
 
 			<div border="1" cellpadding="0" cellspacing="0">
 			
-				
-				<ul width="40">
-					회사명&nbsp;&nbsp;&nbsp;
-					<td align="left"><input type="text" name="name"></td>
-				</ul>
 
-				<ul width="45">
-					상품
+				<ul width="45" >
+					메뉴
 					<td align="left"><input type="text" name="title"></td>
 				</ul>
 

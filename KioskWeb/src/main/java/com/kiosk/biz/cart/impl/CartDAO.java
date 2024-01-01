@@ -18,17 +18,16 @@ public class CartDAO {
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	
-	private final String CART_INSERT = "insert into kioskcart(seq, name, title, price) "
-			+ "values ((select nvl(max(seq), 0)+1 from kioskcart), ?, ?, ?)";
+	private final String CART_INSERT = "insert into kioskcart(seq, title, price) "
+			+ "values ((select nvl(max(seq), 0)+1 from kioskcart), ?, ?)";
 	
 	public void insertCart(CartVO vo) {
 		System.out.println("InserCart");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(CART_INSERT);
-			stmt.setString(1, vo.getName());
 			stmt.setString(1, vo.getTitle());
-			stmt.setString(1, vo.getPrice());
+			stmt.setString(2, vo.getPrice());
 			stmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -66,7 +65,6 @@ public class CartDAO {
 			while (rs.next()) {
 				CartVO cart = new CartVO();
 				cart.setSeq(rs.getInt("SEQ"));
-				cart.setName(rs.getString("NAME"));
 				cart.setTitle(rs.getString("TITLE"));
 				cart.setPrice(rs.getString("PRICE"));
 				cartList.add(cart);
