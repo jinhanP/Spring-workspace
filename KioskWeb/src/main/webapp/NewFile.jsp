@@ -116,7 +116,6 @@ main {
 		</nav> 
 
 		  <div class="menu">
-		  <form action=""></form>
 			<h4>후라이드</h4> 
 		 <table border="1" cellpadding="0" cellspacing="0" width="700">
 			<tr>
@@ -127,15 +126,15 @@ main {
 			</tr>
 			
 			<tr>
-				<th width="150">${cart.title}</th>
+				<th width="150">${menu.title}</th>
 			</tr>
 			<tr>
-				<th width="150">${cart.price}</th>
+				<th width="150">${menu.price}</th>
 			</tr>
-			<c:forEach items="${cartList}" var="cart">
+			<c:forEach items="${menuList}" var="menu">
 				<tr>
-					<td>${cart.title}</td>
-					<td>${cart.price}</td>
+					<td>${menu.title}</td>
+					<td>${menu.price}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -143,46 +142,5 @@ main {
 		</div> 
 		
 	</div>
-</body>
-<script>
-	function showFriedMenu() {
-		// 'fried-menu'라는 ID를 가진 요소를 찾아 스타일을 변경하여 보이도록 함
-		var friedMenu = document.getElementById('fried-menu');
-		friedMenu.style.display = 'block';
-
-		// 기존에 보이던 다른 메뉴들은 숨김 처리
-		// 이 부분은 실제 프로젝트에 따라 동작을 변경할 수 있습니다.
-		var otherMenus = document.querySelectorAll('.menu');
-		otherMenus.forEach(function(menu) {
-			if (menu !== friedMenu) {
-				menu.style.display = 'none';
-			}
-		});
-	}
-
-	// JavaScript로 구현된 함수
-	function addToCart() {
-	
-		// 선택된 이미지를 찾기 위해 모든 체크박스를 가져옴
-		var checkboxes = document.getElementsByName('selectedImages');
-
-		// 선택된 이미지들을 담기 위한 배열
-		var selectedImages = [];
-
-		// 각 체크박스를 확인하고 선택된 이미지를 배열에 추가
-		for (var i = 0; i < checkboxes.length; i++) {
-			if (checkboxes[i].checked) {
-				selectedImages.push(checkboxes[i].value);
-			}
-		}
-
-		// 선택된 이미지에 대한 처리 (여기에서는 간단한 알림창)
-		if (selectedImages.length > 0) {
-			alert('선택된 이미지가 장바구니에 추가되었습니다:\n' + selectedImages.join(', '));
-		} else {
-			alert('이미지를 선택해주세요.');
-		}
-	}
-</script>
 </body>
 </html>

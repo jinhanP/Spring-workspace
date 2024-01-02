@@ -1,6 +1,7 @@
-package com.kiosk.biz.cart;
+package com.kiosk.biz.menu;
 
-public class CartVO {
+public class MenuVO {
+	
 	private int seq;
 	private String title;
 	private String price;
@@ -24,7 +25,6 @@ public class CartVO {
 	}
 	@Override
 	public String toString() {
-		return "CartDAO [seq=" + seq + "title=" + title + ", price=" + price + "]";
+		return "MenuVO [seq=" + seq + ", title=" + title + ", price=" + price + "]";
 	}
-	
 }
