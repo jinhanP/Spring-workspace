@@ -19,6 +19,9 @@
 				<prop key="/join.do">join</prop>
 				<prop key="/updateUser.do">updateUser</prop>
 				<prop key="/deleteUser.do">deleteUser</prop>
+			    <prop key="/CartList.do">CartList</prop>
+			    <prop key="/insertCart.do">insertCart</prop>
+			    <prop key="/deleteCart.do">deleteCart</prop>
 			</props>
 		</property>
 	</bean>
@@ -37,6 +40,9 @@
 		class="com.kiosk.view.board.DeleteBoardController"></bean>
 	<bean id="logout" class="com.kiosk.view.user.LogoutController"></bean>
 	<bean id="join" class="com.kiosk.view.user.JoinController"></bean>
+	<bean id="insertCart" class="com.kiosk.view.InsertCartController"></bean>
+	<bean id="deleteCart" class="com.kiosk.view.DeleteCartController"></bean>
+	
 	<!-- ViewREsolver register 사용자에게 안보이게 하고 개발자에게만 보이게 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
