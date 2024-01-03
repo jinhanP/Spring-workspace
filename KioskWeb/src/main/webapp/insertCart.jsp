@@ -36,7 +36,7 @@
 	</div>
 	</form>
 	<div align="center">
-		<a href="NewFile.jsp">상품 목록 가기</a>
+		<a href="CartList.do">상품 목록 가기</a>
 	</div>
 	</div>
 </body>

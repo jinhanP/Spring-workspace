@@ -17,12 +17,11 @@
 		</tr>
 		<c:forEach items="${CartList}" var="cart">
 				<tr>
-					<td>${cart.title}</td>
-					<td>${cart.price}</td>
+					<td><a type="text" name="title">${cart.title}</a></td>
+					<td><a type="text" name="price">${cart.price}</a></td>
 				</tr>
 			</c:forEach>
 	</table>
-	<a href="insertCart.jsp">새 상품 등록</a>
 	</div>
 </body>
 </html>

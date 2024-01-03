@@ -17,7 +17,7 @@ public class CartServiceClient {
 					
 	
 		CartVO vo = new CartVO();
-//		vo.setSeq(0);
+		vo.setSeq(0);
 		vo.setTitle("양념");
 		vo.setPrice("18000");
 		cartService.insertCart(vo);
