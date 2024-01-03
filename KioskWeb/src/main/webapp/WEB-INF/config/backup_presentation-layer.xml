@@ -9,7 +9,6 @@
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="/NewFile.do">NewFile</prop>
 				<prop key="/login.do">login</prop>
 				<prop key="/getBoardList.do">getBoardList</prop>
 				<prop key="/getBoard.do">getBoard</prop>
@@ -41,7 +40,6 @@
 		class="com.kiosk.view.board.DeleteBoardController"></bean>
 	<bean id="logout" class="com.kiosk.view.user.LogoutController"></bean>
 	<bean id="join" class="com.kiosk.view.user.JoinController"></bean>
-	<bean id="CartList" class="com.kiosk.view.CartListController"></bean>
 	<bean id="insertCart" class="com.kiosk.view.InsertCartController"></bean>
 	<bean id="deleteCart" class="com.kiosk.view.DeleteCartController"></bean>
 	
